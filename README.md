@@ -1,6 +1,6 @@
-# The Monster Slayer
-
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
+# The Monster Slayer
 
 > Game built with Vue.js during course "Vue JS 2 - The Complete Guide"
 
