@@ -61,6 +61,14 @@ button {
     background-color: #76ff7e;
 }
 
+#start-game.disabled {
+    background-color: #D2D2D2;
+    pointer-events: none;
+}
+#start-game.disabled:hover {
+    cursor: not-allowed !important;  /* Not working :(  */
+}
+
 #attack {
     background-color: #ff7367;
 }

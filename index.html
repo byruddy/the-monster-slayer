@@ -13,7 +13,7 @@
   <div id="app">
     <section class="row">
       <div class="small-6 columns">
-        <h1 class="text-center">YOU</h1>
+        <h1 class="text-center">{{ (nickname == '') ? '?' : nickname }}</h1>
         <div class="healthbar">
           <div class="healthbar text-center" 
                style="background-color: green; margin: 0; color: white;"
@@ -35,7 +35,9 @@
     </section>
     <section class="row controls" v-if="!gameIsRunning">
       <div class="small-12 columns">
-        <button id="start-game" @click="startGame">START NEW GAME</button>
+        <small>Your nickname:</small> <br>
+        <input type="text" @keyup="createNickname" v-model:value="nickname" maxlength="15"> <br>
+        <button id="start-game" v-bind:class="{ disabled: noNickname }"@click="startGame">START NEW GAME</button>
       </div>
     </section>
     <section class="row controls" v-else>

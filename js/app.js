@@ -1,12 +1,21 @@
 new Vue({
   el: '#app',
   data: {
+    nickname: '',
+    noNickname: true,
     playerHealth: 100,
     monsterHealth: 100,
     gameIsRunning: false,
     turns: []
   },
   methods: {
+    createNickname() {
+      if (this.nickname == '') {
+        this.noNickname = true;
+      } else {
+        this.noNickname = false;
+      }
+    },
     startGame() {
       this.gameIsRunning = true;
       this.playerHealth = 100;
@@ -37,7 +46,7 @@ new Vue({
     playerAttacks(min, max, isSpecial) {
       const damage = this.calculateDamage(min, max);
       this.monsterHealth -= damage;
-      this.logAttacking(true, 'Player', 'Monster', damage, isSpecial);
+      this.logAttacking(true, this.nickname, 'Monster', damage, isSpecial);
       return this.checkWin();
     },
     monsterAttacks() {
@@ -76,8 +85,10 @@ new Vue({
     logHealing() {
       this.turns.unshift({
         isPlayer: true,
-        text: 'Player heals for 10'
+        text: this.nickname + ' heals for 10'
       });
     }
   }
 });
+
+// console.log(this.nickname);
